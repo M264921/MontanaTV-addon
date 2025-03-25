@@ -1,0 +1,10 @@
+{
+    "id": "org.antonio.montanatv",
+    "version": "1.0.0",
+    "name": "MontanaTV",
+    "description": "Addon personalizado que convierte acestream:// en tu servidor remoto",
+    "resources": ["stream"],
+    "types": ["movie", "tv"],
+    "catalogs": [],
+    "idPrefixes": ["acestream"]
+}
