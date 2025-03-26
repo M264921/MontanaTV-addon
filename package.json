@@ -1,8 +1,8 @@
 {
-  "name": "montanatv",
-  "version": "1.0.0",
-  "description": "Addon AceStream remoto by Anto",
-  "main": "addon.js",
+  "name": "montanatv-addon",
+  "version": "1.1.0",
+  "description": "Addon AceStream remoto con catálogo personalizado",
+  "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },

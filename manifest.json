@@ -1,10 +1,23 @@
 {
-    "id": "org.antonio.montanatv",
-    "version": "1.0.0",
+    "id": "org.montanatv.addon",
+    "version": "1.1.0",
     "name": "MontanaTV",
-    "description": "Addon personalizado que convierte acestream:// en tu servidor remoto",
-    "resources": ["stream"],
-    "types": ["movie", "tv"],
-    "catalogs": [],
-    "idPrefixes": ["acestream"]
+    "description": "Addon personalizado con canales AceStream remotos y catálogo IPTV",
+    "resources": [
+        "stream",
+        "catalog"
+    ],
+    "types": [
+        "movie"
+    ],
+    "catalogs": [
+        {
+            "type": "movie",
+            "id": "montanatv.catalog",
+            "name": "MontanaTV IPTV"
+        }
+    ],
+    "idPrefixes": [
+        "acestream"
+    ]
 }
