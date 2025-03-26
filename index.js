@@ -21,6 +21,7 @@ const manifest = {
 const builder = new addonBuilder(manifest);
 
 builder.defineCatalogHandler(({ type, id }) => {
+    console.log("CatalogHandler llamado con:", type, id);
     if (type === "movie" && id === "montanatv.catalog") {
         return Promise.resolve({ metas: catalog.metas });
     }
@@ -44,14 +45,8 @@ builder.defineStreamHandler(({ id }) => {
 
 const addonInterface = builder.getInterface();
 
-require("http").createServer((req, res) => {
-    if (req.url === "/manifest.json") {
-        res.setHeader("Content-Type", "application/json");
-        res.end(JSON.stringify(manifest));
-    } else {
-        addonInterface(req, res);
-    }
-}).listen(7000, '0.0.0.0');
+// Servidor HTTP que expone el addon
+require("http").createServer(addonInterface).listen(7000, '0.0.0.0');
 
 console.log("✅ MontanaTV addon corriendo en http://localhost:7000");
 
