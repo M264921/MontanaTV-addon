@@ -42,16 +42,16 @@ builder.defineStreamHandler(({ id }) => {
     return Promise.resolve({ streams: [] });
 });
 
-module.exports = builder.getInterface();
+const addonInterface = builder.getInterface();
 
-// Servidor HTTP que expone el addon
 require("http").createServer((req, res) => {
     if (req.url === "/manifest.json") {
         res.setHeader("Content-Type", "application/json");
         res.end(JSON.stringify(manifest));
     } else {
-        builder.getInterface()(req, res);
+        addonInterface(req, res);
     }
 }).listen(7000, '0.0.0.0');
 
-console.log("MontanaTV addon corriendo en http://localhost:7000");
+console.log("✅ MontanaTV addon corriendo en http://localhost:7000");
+
