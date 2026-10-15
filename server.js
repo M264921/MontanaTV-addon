@@ -1,9 +1,4 @@
-#!/usr/bin/env node
-
-const { serveHTTP, publishToCentral } = require("stremio-addon-sdk")
-const addonInterface = require("./addon")
-serveHTTP(addonInterface, { port: process.env.PORT || 59676 })
-
-// when you've deployed your addon, un-comment this line
-// publishToCentral("https://my-addon.awesome/manifest.json")
-// for more information on deploying, see: https://github.com/Stremio/stremio-addon-sdk/blob/master/docs/deploying/README.md
+const { startServer } = require('./shared');
+const server = startServer({ port: Number(process.env.PORT || 59676) });
+server.on('listening', () => console.log(`MontanaTV: puerto ${server.address().port}`));
+server.on('error', error => { console.error(error.message); process.exitCode = 1; });
